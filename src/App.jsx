@@ -1,45 +1,70 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {calculateDistribution} from './KhatmLogic';
 import nameData from './data/names.json'
+import './App.css';
 
 function App() {
     // State für die Namen
-    const [names, setNames] = useState(Array.isArray(nameData) ? nameData : []);
+    const [names, setNames] = useState(() =>{
+
+        const savedNames = localStorage.getItem('khatm-names');
+        if (savedNames) return JSON.parse(savedNames);
+       return Array.isArray(nameData) ? nameData : [];
+    });
+
     // State für den aktuellen Zyklus
     const [cycle, setCycle] = useState(0);
 
     const[inputText, setInputText] = useState('');
 
+    useEffect(() => {
+        localStorage.setItem('khatm-names', JSON.stringify(names));
+    }, [names])
     // Wir berechnen die Verteilung basierend auf dem State
     const distribution = Array.isArray(names) ? calculateDistribution(names, cycle) : [];
 
-    const handleAddName = () =>{
+    const handleAddName = (e) =>{
+        if(e) e.preventDefault();
         if (inputText.trim() !== ""){
             setNames([...names, inputText]);
             setInputText("");
         }
     }
+
+    const removeName = (indexToRemove) =>{
+        setNames(names.filter((_, index) => index !== indexToRemove));
+    }
     return (
-        <div>
+        <div className="container">
             <h1>Khatm Planner</h1>
-            <label htmlFor="names"> Add the people here
-                </label>
-            <input
-                type="text"
-                value={inputText}
-                onChange={e => setInputText(e.target.value)}
-                placeholder="input name..."
+
+            <form className="input-group">
+                <input
+                    id="name-input"
+                    type="text"
+                    value={inputText}
+                    onChange={e => setInputText(e.target.value)}
+                    placeholder="input name..."
                 />
-            <button onClick={handleAddName}> Add</button>
-            <button onClick={() => setCycle(cycle + 1)}>Next Cycle</button>
+                <button type="submit" className="btn-add" onClick={handleAddName}>Add</button>
+            </form>
+
+            <button className="btn-cycle" onClick={() => setCycle(cycle + 1)}>
+                Next Cycle (Round: {cycle})
+            </button>
 
             <ul>
-                {distribution.map((item, index) =>
-                    (<li key={index}>
-                        <strong> {item.name}: </strong>
-                            Pages [{item.startSurah} : {item.startAyah}] to [{item.endSurah} : {item.endAyah}]
+                {distribution.map((item, index) => (
+                    <li key={index} className="list-item">
+                        <button className="remove-btn" onClick={() => removeName(index)}>✕</button>
+                        <strong>👤 {item.name}</strong>
+                        <div className="page-info">
+                            Page: <strong>{item.startPage} - {item.endPage}</strong>
+                        </div>
+                        <div className="page-info">
+                            {item.startSurah}:{item.startAyah} bis {item.endSurah}:{item.endAyah}
+                        </div>
                     </li>
-
                 ))}
             </ul>
         </div>);
