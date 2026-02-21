@@ -1,16 +1,24 @@
-# React + Vite
+# 🌙 Khatm Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a prototype for a smart, easy-to-use React app that helps groups organize and track their Quran completion journey together. I used it as a means to get comfortable with vite + react and javascript. Please feel free to use and share.  
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Automatically divides 603 pages of the Quran among your group members, not the last one since we will read it together.
+- Names rotate automatically so everyone gets fresh pages to read
+- See exactly which Surah and Ayah each person reads
+- The participant list and cycle number are saved locally
 
-## React Compiler
+## 🚀 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
 
-## Expanding the ESLint configuration
+```bash
+# Clone the repo
+git clone https://github.com/malsharef/Khatm-Splitter.git
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Navigate to the project
+cd Khatm-Splitter
+
+# Install dependencies
+npm install
