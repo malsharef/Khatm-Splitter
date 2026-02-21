@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { calculateDistribution } from './KhatmLogic';
 
 function App() {
-  const [count, setCount] = useState(0)
+    // State für die Namen
+    const [names, setNames] = useState(["Ahmed", "Sara", "Hamza"]);
+    // State für den aktuellen Zyklus
+    const [cycle, setCycle] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // Wir berechnen die Verteilung basierend auf dem State
+    const distribution = calculateDistribution(names, cycle);
+
+    return (
+        <div>
+            <h1>Khatm Planner</h1>
+            <button onClick={() => setCycle(cycle + 1)}>Nächster Zyklus</button>
+
+            <ul>
+                {distribution.map((item, index) => (
+                    <li key={index}>
+                        {item.name}: Seite {item.start} bis {item.end}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
-
-export default App
+export default App;
