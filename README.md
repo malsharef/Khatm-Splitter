@@ -1,6 +1,6 @@
 # 🌙 Khatm Planner
 
-This is a prototype for a smart, easy-to-use React app that helps groups organize and track their Quran completion journey together. I used it as a means to get comfortable with vue + react and javascript. Please feel free to use and share.  
+This is a prototype for a smart, easy-to-use React app that helps groups organize and track their Quran completion journey together. I used it as a means to get comfortable with vite + react and javascript. Please feel free to use and share.  
 
 ## Features
 
