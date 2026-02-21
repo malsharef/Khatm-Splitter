@@ -44,7 +44,7 @@ function App() {
                     type="text"
                     value={inputText}
                     onChange={e => setInputText(e.target.value)}
-                    placeholder="input name..."
+                    placeholder="Input name..."
                 />
                 <button type="submit" className="btn-add" onClick={handleAddName}>Add</button>
             </form>
