@@ -1,51 +1,44 @@
-🌙 Khatm Planner
-A smart React-based tool designed to help groups organize and track their Quran completion (Khatm). It automatically divides the 604 pages of the Quran among participants and rotates the assignments in each cycle to ensure everyone reads different sections.
+# 🌙 Khatm Planner
 
-✨ Features
-Smart Distribution: Automatically calculates page ranges for any number of participants.
+A smart, easy-to-use React app that helps groups organize and track their Quran completion journey together. No more confusion about who reads what—the app handles the math and rotation for you!
 
-Rotation Logic: Supports multiple cycles. Names rotate each cycle so participants read new pages every time.
+## ✨ Features
 
-Quran Data Integration: Displays specific Surah and Ayah information for the start and end of each assigned range.
+**Smart Page Distribution**
+- Automatically divides all 604 pages of the Quran among your group members
+- Works with any group size (2 people, 50 people, you name it)
+- Calculates fair, equal portions every time
 
-Persistent Storage: Uses localStorage to save your participant list and current cycle, so your progress isn't lost when you refresh the page.
+**Rotating Cycles**
+- Complete one full reading? Start a new cycle!
+- Names rotate automatically so everyone gets fresh pages to read
+- Track your progress across multiple cycles
 
-Mobile Friendly: Fully responsive UI designed for easy use on smartphones.
+**Detailed Quran Mapping**
+- See exactly which Surah and Ayah each person reads
+- Know the start and end points of every assignment
+- Never guess where your section begins or ends
 
-🚀 Tech Stack
-Frontend: React (Vite)
+**Saves Your Progress**
+- Your participant list and cycle number are saved locally
+- Close the app, come back later—everything's still there
+- No account needed, no cloud required
 
-Styling: CSS3 (Flexbox & Responsive Design)
+**Mobile-Friendly Design**
+- Beautiful, responsive UI that works on phones, tablets, and desktops
+- Touch-friendly controls
+- Fast and smooth experience
 
-Deployment: Vercel
+## 🚀 Getting Started
 
-Data: JSON-based Quran mapping
+### Installation
 
-🛠️ Installation & Setup
-Clone the repository:
+```bash
+# Clone the repo
+git clone https://github.com/malsharef/Khatm-Splitter.git
 
-Bash
-git clone https://github.com/your-username/khatm-planner.git
-Install dependencies:
+# Navigate to the project
+cd Khatm-Splitter
 
-Bash
+# Install dependencies
 npm install
-Run locally:
-
-Bash
-npm run dev
-Build for production:
-
-Bash
-npm run build
-📖 How it Works
-The core logic resides in KhatmLogic.js. It takes the total 604 -1 pages of the Quran and divides them by the number of people in your list.
-
-Cycle System: When you click "Next Cycle", the cycle state increments.
-
-Rotation: The rotateNames function shifts the array of names based on the current cycle number.
-
-Data Mapping: The app looks up the quran.json file to find which Surah and Ayah correspond to the calculated page numbers.
-
-📝 License
-This project is open-source and free to use.
