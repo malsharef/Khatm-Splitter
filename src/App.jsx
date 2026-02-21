@@ -62,12 +62,12 @@ function App() {
             className="btn-reset"
             style={{ backgroundColor: '#95a5a6', color: 'white', marginTop: '5px' }}
             onClick={() => {
-                if(window.confirm("Zyklus wirklich auf 0 zurücksetzen?")) {
+                if(window.confirm("Reset Cycle?")) {
                     setCycle(0);
                 }
             }}
         >
-            Reset Zyklus
+            Reset Cycle
         </button>
         <ul>
             {distribution.map((item, index) => (<li key={index} className="list-item">
