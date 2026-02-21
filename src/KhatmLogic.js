@@ -28,7 +28,8 @@ export const calculateDistribution = (names, cycle = 0) => {
         const endData = quranData[end];
 
         const startSurahNum = startData ? Object.keys(startData)[0] : "?";
-        const endSurahNum = endData ? Object.keys(endData)[0] : "?";
+        const endSurahKeys = endData ? Object.keys(endData) : [];
+        const endSurahNum = endSurahKeys.length > 0 ? endSurahKeys[endSurahKeys.length - 1] : "?";
 
         const startAyahRange = startData ? startData[startSurahNum] : [0, 0];
         const endAyahRange = endData ? endData[endSurahNum] : [0, 0];
